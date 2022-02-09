@@ -1,3 +1,0 @@
-spring:
-  application:
-    name: ${SPRING_APPLICATION_NAME:gb-shop}
