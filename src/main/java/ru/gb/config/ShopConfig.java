@@ -15,4 +15,5 @@ public class ShopConfig {
     public AuditorAware<String> auditorAwareBean() {
         return () -> Optional.of("User");
     }
+
 }

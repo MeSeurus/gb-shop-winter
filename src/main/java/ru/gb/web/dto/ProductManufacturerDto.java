@@ -12,14 +12,20 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class ProductManufacturerDto {
+
     private Long id;
+
     @NotBlank
     private String title;
+
     @NotNull
     @DecimalMin(value = "0.0", inclusive = false)
     @Digits(integer=3, fraction=2)
     private BigDecimal cost;
+
     @PastOrPresent
     private LocalDate manufactureDate;
+
     private ManufacturerDto manufacturerDto;
+
 }
