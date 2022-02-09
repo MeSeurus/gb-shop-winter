@@ -10,7 +10,6 @@ import ru.gb.entity.common.InfoEntity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 @Setter
@@ -18,37 +17,34 @@ import java.util.Set;
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "MANUFACTURER")
-public class Manufacturer extends InfoEntity {
+@Table(name = "CATEGORY")
+public class Category extends InfoEntity {
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
-    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private Set<Product> products;
-
-    public boolean addProduct(Product product) {
-        if (products == null) {
-            products = new HashSet<>();
-        }
-        return products.add(product);
-    }
 
     @Override
     public String toString() {
-        return "Manufacturer{" +
+        return "Category{" +
                 "id=" + getId() +
-                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
                 ", products=" + products +
                 '}';
     }
 
     @Builder
-    public Manufacturer(Long id, int version, String createdBy, LocalDateTime createdDate, String lastModifiedBy,
-                        LocalDateTime lastModifiedDate, String name, Set<Product> products) {
+    public Category(Long id, int version, String createdBy, LocalDateTime createdDate, String lastModifiedBy,
+                    LocalDateTime lastModifiedDate, String title, Set<Product> products) {
         super(id, version, createdBy, createdDate, lastModifiedBy, lastModifiedDate);
-        this.name = name;
+        this.title = title;
         this.products = products;
     }
-
 }
