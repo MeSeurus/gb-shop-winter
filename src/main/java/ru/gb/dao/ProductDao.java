@@ -3,8 +3,8 @@ package ru.gb.dao;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.gb.api.common.enums.Status;
 import ru.gb.entity.Product;
+import ru.gb.entity.enums.Status;
 
 import java.util.List;
 

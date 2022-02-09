@@ -1,8 +1,6 @@
 package ru.gb.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import ru.gb.api.manufacturer.dto.ManufacturerDto;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -22,7 +20,6 @@ public class ProductManufacturerDto {
     @Digits(integer=3, fraction=2)
     private BigDecimal cost;
     @PastOrPresent
-    @JsonFormat(pattern="dd.MM.yyyy")
     private LocalDate manufactureDate;
     private ManufacturerDto manufacturerDto;
 }

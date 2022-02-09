@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.gb.api.product.dto.ProductDto;
 import ru.gb.service.ProductService;
+import ru.gb.web.dto.ProductDto;
 import ru.gb.web.dto.ProductManufacturerDto;
 
 import java.net.URI;
