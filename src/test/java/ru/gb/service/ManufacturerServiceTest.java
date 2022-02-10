@@ -4,12 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.invocation.Invocation;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
-import ru.gb.api.manufacturer.dto.ManufacturerDto;
+import org.springframework.boot.ansi.AnsiElement;
 import ru.gb.dao.ManufacturerDao;
 import ru.gb.entity.Manufacturer;
+import ru.gb.web.dto.ManufacturerDto;
 import ru.gb.web.dto.mapper.ManufacturerMapper;
 
 import java.time.LocalDateTime;
@@ -36,10 +38,9 @@ class ManufacturerServiceTest {
 
     private final String TEST_USER = "user1";
 
-
     @Test
-    public void findAllManufacturersTest() {
-        // given
+    public void findAllManufacturerTest() {
+        //given
         List<Manufacturer> manufacturers = new ArrayList<>(){{
             add(Manufacturer.builder()
                     .id(1L)
@@ -63,17 +64,17 @@ class ManufacturerServiceTest {
 
         given(manufacturerDao.findAll()).willReturn(manufacturers);
 
-        // when
+        //when
         List<ManufacturerDto> manufacturerDtos = manufacturerService.findAll();
 
-        // then
+        //then
         then(manufacturerDao).should().findAll();
         assertEquals(manufacturers.size(), manufacturerDtos.size());
     }
 
     @Test
     public void saveManufacturer() {
-        // given
+        //given
         Manufacturer manufacturerFromDao = Manufacturer.builder()
                 .id(1L)
                 .name("Apple")
@@ -90,15 +91,15 @@ class ManufacturerServiceTest {
         given(manufacturerMapper.toManufacturer(any())).will(new ToManufacturer());
         given(manufacturerMapper.toManufacturerDto(any())).will(new ToManufacturerDto());
 
-        // when
+        //when
 
-        ManufacturerDto returnedManufactureDto = manufacturerService.save(manufacturerDto);
+        ManufacturerDto returnedManufacturerDto = manufacturerService.save(manufacturerDto);
 
-        // then
+        //then
         then(manufacturerDao).should().save(any(Manufacturer.class));
-        assertEquals(1L, returnedManufactureDto.getManufacturerId());
-
+        assertEquals(1L, returnedManufacturerDto.getManufacturerId());
     }
+
 }
 
 class ToManufacturer implements Answer<Manufacturer> {
@@ -113,19 +114,21 @@ class ToManufacturer implements Answer<Manufacturer> {
 
         Manufacturer.ManufacturerBuilder manufacturer = Manufacturer.builder();
 
-        manufacturer.id(manufacturerDto.getManufacturerId());
-        manufacturer.name(manufacturerDto.getName());
+        manufacturer.id( manufacturerDto.getManufacturerId() );
+        manufacturer.name( manufacturerDto.getName() );
 
         return manufacturer.build();
     }
+
 }
+
 class ToManufacturerDto implements Answer<ManufacturerDto> {
 
     @Override
-    public ManufacturerDto answer(InvocationOnMock invocation) throws Throwable {
-        Manufacturer manufacturer = (Manufacturer) invocation.getArgument(0);
+    public ManufacturerDto answer(InvocationOnMock invocation) throws Throwable{
 
-        if ( manufacturer == null ) {
+        Manufacturer manufacturer = (Manufacturer) invocation.getArgument(0);
+        if (manufacturer == null) {
             return null;
         }
 

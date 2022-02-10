@@ -19,7 +19,8 @@ class ManufacturerDaoTest {
     @Test
     public void saveTest() {
         Manufacturer manufacturer = Manufacturer.builder()
-                .name("Tesla").build();
+                .name("Tesla")
+                .build();
 
         Manufacturer savedManufacturer = manufacturerDao.save(manufacturer);
 
@@ -27,12 +28,11 @@ class ManufacturerDaoTest {
                 () -> assertEquals(1L, savedManufacturer.getId()),
                 () -> assertEquals("Tesla", savedManufacturer.getName()),
                 () -> assertEquals(0, savedManufacturer.getVersion()),
-                () -> assertEquals("User", savedManufacturer.getCreatedBy(), "createdBy mustn't be null"),
-                () -> assertEquals("User", savedManufacturer.getLastModifiedBy(), "lastModified mustn't be null"),
-                () -> assertNotNull(savedManufacturer.getCreatedDate(), "createdDate mustn't be null"),
-                () -> assertNotNull(savedManufacturer.getLastModifiedDate(), "lastModifiedDate mustn't be null")
+                () -> assertEquals("User", savedManufacturer.getCreatedBy(), "mustn't be null"),
+                () -> assertEquals("User", savedManufacturer.getLastModifiedBy(), "mustn't be null"),
+                () -> assertNotNull(savedManufacturer.getCreatedDate(), "mustn't be null"),
+                () -> assertNotNull(savedManufacturer.getLastModifiedDate(), "mustn't be null")
         );
-
     }
 
 }

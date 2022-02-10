@@ -6,7 +6,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import ru.gb.entity.common.BaseEntity;
 import ru.gb.entity.common.InfoEntity;
 
 import javax.persistence.*;
@@ -35,8 +34,9 @@ public class Category extends InfoEntity {
     @Override
     public String toString() {
         return "Category{" +
-                ", id='" + getId() +
-                ", title='" + title +
+                "id=" + getId() +
+                ", title='" + title + '\'' +
+                ", products=" + products +
                 '}';
     }
 

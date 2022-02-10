@@ -10,12 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.gb.api.category.dto.CategoryDto;
 import ru.gb.dao.CategoryDao;
+import ru.gb.web.dto.CategoryDto;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,11 +21,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class CategoryControllerSpringBootTest {
 
-    final private static String CATEGORY_NAME = "Fruit";
-    final private static String UPDATED_CATEGORY_NAME = "Vegetables";
+    final private static String CATEGORY_NAME = "Tech";
+    final private static String UPDATED_CATEGORY_NAME = "Finance";
 
     @Autowired
     MockMvc mockMvc;
@@ -40,7 +37,7 @@ class CategoryControllerSpringBootTest {
 
     @Test
     @Order(1)
-    public void handlePostTest() throws Exception {
+    public void categoryPostTest() throws Exception {
         mockMvc.perform(post("/api/v1/category")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper
@@ -50,8 +47,6 @@ class CategoryControllerSpringBootTest {
                                 )
                         ))
                 .andExpect(status().isCreated());
-
-        assertEquals(1, categoryDao.count());
     }
 
     @Test
@@ -66,7 +61,7 @@ class CategoryControllerSpringBootTest {
 
     @Test
     @Order(3)
-    public void handleUpdateTest() throws Exception {
+    public void categoryUpdateTest() throws Exception {
         mockMvc.perform(put("/api/v1/category/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper

@@ -5,18 +5,18 @@ spring:
     config:
       server:
         git:
-          uri: ${GIT_URI:/Users/artemkropotov/java_projects/geekbrains/gb-setting}
+          uri: ${GIT_URI:C:\\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-settings}
           clone-on-start: true
-          username: ${GIT_USERNAME:geek}
+          username: ${GIT_USERNAME:postgres}
           password: ${GIT_PASSWORD:geek}
         default-label: master
   security:
     user:
-      name: ${SECURITY_USER:geek_user}
-      password: ${SECURITY_PASSWORD:geek_pass}
+      name: ${SECURITY_USER:postgres_user}
+      password: ${SECURITY_PASSWORD:user_pass}
+
 
 
 #localhost:8888/[application_name]/[profile]/[label]
-#
-#localhost:8888/[gb-shop]/[dev]
+#localhost:8888/[gb-shop]/[dev]/[master]
 

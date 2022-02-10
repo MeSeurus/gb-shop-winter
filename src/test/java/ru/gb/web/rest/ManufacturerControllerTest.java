@@ -8,20 +8,21 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import ru.gb.api.manufacturer.dto.ManufacturerDto;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import ru.gb.service.ManufacturerService;
+import ru.gb.web.dto.ManufacturerDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.then;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -46,11 +47,11 @@ class ManufacturerControllerTest {
     }
 
     @Test
-    public void mockMvcGetManufacturerListTest() throws Exception {
-        // given
+    public void mockMvcGetManufacturerListTest() throws Exception{
+        //given
         given(manufacturerService.findAll()).willReturn(manufacturerDtoList);
 
-        mockMvc.perform(get("/api/v1/manufacturer"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/manufacturer"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("id")))
                 .andExpect(jsonPath("$.[0].id").value("1"))
@@ -66,25 +67,25 @@ class ManufacturerControllerTest {
         mockMvc.perform(post("/api/v1/manufacturer")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
-                        "    \"name\": \"Microsoft\"" +
+                        "    \"name\": \"Apple\"\n" +
                         "}"))
                 .andExpect(status().isCreated());
-
     }
 
     @Test
     public void getManufacturerListTest() {
-        // given
+
+        //given
         given(manufacturerService.findAll()).willReturn(manufacturerDtoList);
 
-        // when
+        //when
         List<ManufacturerDto> manufacturerList = manufacturerController.getManufacturerList();
 
-        // then
+        //then
         then(manufacturerService).should().findAll();
 
         assertAll(
-                () -> assertEquals(2, manufacturerList.size(), "Size "),
+                () -> assertEquals(2, manufacturerList.size(), "Size"),
                 () -> assertEquals("Apple", manufacturerList.get(0).getName())
         );
     }

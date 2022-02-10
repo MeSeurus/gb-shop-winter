@@ -24,7 +24,6 @@ public class ManufacturerService {
     private final ManufacturerDao manufacturerDao;
     private final ManufacturerMapper manufacturerMapper;
 
-
     @Transactional
     public ManufacturerDto save(final ManufacturerDto manufacturerDto) {
         Manufacturer manufacturer = manufacturerMapper.toManufacturer(manufacturerDto);
@@ -53,4 +52,5 @@ public class ManufacturerService {
             log.error(e.getMessage());
         }
     }
+
 }

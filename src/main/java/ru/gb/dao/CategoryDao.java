@@ -7,6 +7,4 @@ import java.util.Optional;
 
 public interface CategoryDao extends JpaRepository<Category, Long> {
     Optional<Category> findByTitle(String title);
-
-    Optional<Category> findByTitleAndId(String title, Long id);
 }

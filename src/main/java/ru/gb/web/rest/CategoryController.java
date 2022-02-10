@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.gb.api.category.dto.CategoryDto;
 import ru.gb.service.CategoryService;
+import ru.gb.web.dto.CategoryDto;
 
 import java.util.List;
 
@@ -53,4 +53,5 @@ public class CategoryController {
     public void deleteById(@PathVariable("categoryId") Long id) {
         categoryService.deleteById(id);
     }
+
 }
