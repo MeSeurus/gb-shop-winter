@@ -2,13 +2,14 @@ security:
   endpoint:
     decrypt:
       enabled: true
+
 encrypt:
   key-store:
-    alias: ${ENCRYPT_KEYSTORE_ALIAS:gbshopkey}
-    password: ${ENCRYPT_KEYSTORE_PASSWORD:123456}
-    location: ${ENCRYPT_KEYSTORE_LOCATION:file:///Users/artemkropotov/java_projects/geekbrains/gb-shop-winter/server.jks}
+    alias: gbshopkey
+    password: 123456
+    location: C:\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-shop-winter\server.jks
 
 
-#  keytool -genkeypair -alias gbshopkey -keyalg RSA \
-#  -dname "CN=Web Server,OU=Unit,O=geekbrains,L=Moscow,C=Russia" \
-#  -keypass 123456 -keystore server.jks -storepass 123456
+#    keytool -genkeypair -alias gbshopkey -keyalg RSA \
+#    -dname "CN=Web Server,OU=Unit,O=Geekbrains,L=Moscow,C=Russia" \
+#    -keypass 123456 -keystore server.jks -storepass 123456
