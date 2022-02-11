@@ -1,6 +1,7 @@
 package ru.gb.web.dto;
 
 import lombok.*;
+import ru.gb.api.manufacturer.dto.ManufacturerDto;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
