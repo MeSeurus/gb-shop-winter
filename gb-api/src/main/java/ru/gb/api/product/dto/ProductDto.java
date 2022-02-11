@@ -1,14 +1,9 @@
-package ru.gb.web.dto;
+package ru.gb.api.product.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 import lombok.*;
-import ru.gb.entity.enums.Status;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -33,8 +28,8 @@ public class ProductDto {
     @JsonFormat(pattern="dd.MM.yyyy")
     private LocalDate manufactureDate;
 
-    @NotNull
-    private Status status;
+//    @NotNull
+//    private Status status;
 
     private String manufacturer;
 

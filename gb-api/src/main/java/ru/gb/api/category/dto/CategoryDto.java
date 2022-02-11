@@ -1,4 +1,4 @@
-package ru.gb.web.dto;
+package ru.gb.api.category.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -8,9 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ManufacturerDto {
+public class CategoryDto {
 
     @JsonProperty(value = "id")
-    private Long manufacturerId;
-    private String name;
+    private Long categoryId;
+    private String title;
+
 }

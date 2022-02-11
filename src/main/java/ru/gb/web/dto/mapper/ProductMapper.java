@@ -3,12 +3,12 @@ package ru.gb.web.dto.mapper;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import ru.gb.api.product.dto.ProductDto;
 import ru.gb.dao.CategoryDao;
 import ru.gb.dao.ManufacturerDao;
 import ru.gb.entity.Category;
 import ru.gb.entity.Manufacturer;
 import ru.gb.entity.Product;
-import ru.gb.web.dto.ProductDto;
 import ru.gb.web.dto.ProductManufacturerDto;
 
 import java.util.NoSuchElementException;
