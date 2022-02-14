@@ -14,8 +14,7 @@ import ru.gb.dao.CategoryDao;
 import ru.gb.dao.ManufacturerDao;
 import ru.gb.dao.ProductDao;
 import ru.gb.entity.Product;
-import ru.gb.entity.enums.Status;
-import ru.gb.web.dto.ProductManufacturerDto;
+import ru.gb.api.common.enums.Status;
 import ru.gb.web.dto.mapper.ProductMapper;
 
 import java.util.List;

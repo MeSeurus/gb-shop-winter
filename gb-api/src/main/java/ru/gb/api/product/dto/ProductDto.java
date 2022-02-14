@@ -1,11 +1,14 @@
 package ru.gb.api.product.dto;
 
+import ru.gb.api.category.dto.CategoryDto;
+import ru.gb.api.common.enums.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,11 +31,11 @@ public class ProductDto {
     @JsonFormat(pattern="dd.MM.yyyy")
     private LocalDate manufactureDate;
 
-//    @NotNull
-//    private Status status;
+    @NotNull
+    private Status status;
 
     private String manufacturer;
 
-    private String category;
+    private Set<CategoryDto> categories;
 
 }
