@@ -10,6 +10,7 @@ import ru.gb.dao.ManufacturerDao;
 import ru.gb.entity.Category;
 import ru.gb.entity.Manufacturer;
 import ru.gb.entity.Product;
+import ru.gb.web.dto.ProductManufacturerDto;
 
 import java.util.NoSuchElementException;
 import java.util.Set;

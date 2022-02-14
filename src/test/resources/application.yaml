@@ -11,6 +11,8 @@ spring:
 gb.api:
   endpoint:
     manufacturer-url: 'stub'
+    category-url: 'stub'
+    product-url: 'stub'
   connection:
     period: 3000 #Mills
     max-period: 5000 #Mills

@@ -5,8 +5,8 @@ security:
 
 encrypt:
   key-store:
-    alias: gbshopkey
-    password: 123456
+    alias: ${ENCRYPT_KEYSTORE_ALIAS:gbshopkey}
+    password: ${ENCRYPT_KEYSTORE_PASSWORD:123456}
     location: C:\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-shop-winter\server.jks
 
 

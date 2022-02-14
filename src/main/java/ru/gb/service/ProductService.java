@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import ru.gb.api.common.enums.Status;
 import ru.gb.api.product.dto.ProductDto;
 import ru.gb.dao.CategoryDao;
 import ru.gb.dao.ManufacturerDao;
 import ru.gb.dao.ProductDao;
 import ru.gb.entity.Product;
-import ru.gb.api.common.enums.Status;
+import ru.gb.web.dto.ProductManufacturerDto;
 import ru.gb.web.dto.mapper.ProductMapper;
 
 import java.util.List;
@@ -25,7 +26,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Slf4j
 public class ProductService {
-
     private final ProductDao productDao;
     private final ManufacturerDao manufacturerDao;
     private final CategoryDao categoryDao;

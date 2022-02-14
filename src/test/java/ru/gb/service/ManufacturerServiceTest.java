@@ -94,6 +94,7 @@ class ManufacturerServiceTest {
         ManufacturerDto returnedManufacturerDto = manufacturerService.save(manufacturerDto);
 
         //then
+
         then(manufacturerDao).should().save(any(Manufacturer.class));
         assertEquals(1L, returnedManufacturerDto.getManufacturerId());
     }
