@@ -7,7 +7,7 @@ encrypt:
   key-store:
     alias: ${ENCRYPT_KEYSTORE_ALIAS:gbshopkey}
     password: ${ENCRYPT_KEYSTORE_PASSWORD:123456}
-    location: C:\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-shop-winter\server.jks
+    location: ${ENCRYPT_KEYSTORE_LOCATION:file:C:\Users\Redor\Desktop\RepoWork\Lesson_3\gb-shop-winter\server.jks}
 
 
 #    keytool -genkeypair -alias gbshopkey -keyalg RSA \
