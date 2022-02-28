@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.api.product.dto.ProductDto;
 import ru.gb.service.ProductService;
+import ru.gb.web.dto.ProductManufacturerDto;
 
 import java.net.URI;
 import java.util.List;

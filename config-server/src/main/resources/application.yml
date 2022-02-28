@@ -5,15 +5,15 @@ spring:
     config:
       server:
         git:
-          uri: ${GIT_URI:C:\\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-settings}
+          uri: ${GIT_URI:C:\Users\Redor\Desktop\RepoWork\gb-winter-shop\gb-settings}
           clone-on-start: true
-          username: ${GIT_USERNAME:postgres}
+          username: ${GIT_USERNAME:geek}
           password: ${GIT_PASSWORD:geek}
         default-label: master
   security:
     user:
-      name: ${SECURITY_USER:postgres_user}
-      password: ${SECURITY_PASSWORD:user_pass}
+      name: ${SECURITY_USER:geek_user}
+      password: ${SECURITY_PASSWORD:geek_pass}
 
 
 

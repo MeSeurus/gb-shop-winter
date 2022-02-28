@@ -10,22 +10,23 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class GbApiProperties {
 
     private Endpoint endpoint;
-
     private Connection connection;
 
     @Getter
     @Setter
     public static class Endpoint {
         private String manufacturerUrl;
+        private String categoryUrl;
+        private String productUrl;
     }
 
     @Setter
     @Getter
     public static class Connection {
-        private int period;
-        private int maxPeriod;
-        private int maxAttempts;
-        private int connectTimeoutMillis;
-        private int readTimeoutMillis;
+        private Integer period;
+        private Integer maxPeriod;
+        private Integer maxAttempts;
+        private Integer connectTimeoutMillis;
+        private Integer readTimeoutMillis;
     }
 }
