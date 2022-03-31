@@ -11,4 +11,10 @@ spring:
       username: ${SPRING_CLOUD_CONFIG_USERNAME:geek_user}
       password: ${SPRING_CLOUD_CONFIG_PASSWORD:geek_pass}
 
+#JWT token description
+jwt:
+  token:
+    expired: 86_400_000
+    secret: 'jwtsecret'
+
 

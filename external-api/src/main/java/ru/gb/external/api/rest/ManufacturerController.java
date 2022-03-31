@@ -1,6 +1,7 @@
 package ru.gb.external.api.rest;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -35,6 +36,7 @@ public class ManufacturerController {
     @PutMapping("/{manufacturerId}")
     public ResponseEntity<?> handleUpdate(@PathVariable("manufacturerId") Long id,
                                           @Validated @RequestBody ManufacturerDto manufacturerDto) {
+        log.info("Change manufacturer with id {}", id);
         return manufacturerGateway.handleUpdate(id, manufacturerDto);
     }
 
