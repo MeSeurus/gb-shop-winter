@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: ${GIT_URI:/Users/artemkropotov/java_projects/geekbrains/gb-setting}
+          uri: ${GIT_URI:C:\Users\Redor\Desktop\RepoWork\GeekBrains\gb-winter-shop-result\gb-shop-winter\gb-settings}
           clone-on-start: true
           username: ${GIT_USERNAME:geek}
           password: ${GIT_PASSWORD:geek}
