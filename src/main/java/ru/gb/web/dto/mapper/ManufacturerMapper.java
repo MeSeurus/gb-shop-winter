@@ -3,7 +3,6 @@ package ru.gb.web.dto.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.gb.entity.Manufacturer;
-import ru.gb.web.dto.ManufacturerDto;
 
 @Mapper
 public interface ManufacturerMapper {
